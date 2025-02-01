@@ -8,7 +8,7 @@ const {
 const {  checkAuthUser, checkAuthAdmin } = require("../middlewares/checkAuth");
 const userRouter = express.Router();
 
-userRouter.get("/", getUsers);
+userRouter.get("/",checkAuthAdmin, getUsers);
 userRouter.post("/signup", signUpUser);
 userRouter.post("/signin", signInUser);
 userRouter.post("/update",checkAuthUser, updateUser);
