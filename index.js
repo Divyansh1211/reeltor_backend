@@ -8,12 +8,9 @@ const Notification = require("./models/notification");
 const User = require("./models/user");
 const { isUserAvailable } = require("./utils/helper");
 const notificationRouter = require("./routes/notificationRoute");
+const { mongodb_uri } = require("./utils/config");
 
-mongoose
-.connect(
-  "mongodb+srv://divyanshmanchanda1211:yLuuPXMssFC0B7wB@cluster0.wbj7g6v.mongodb.net/Reeltor"
-)
-.then(() => {
+mongoose.connect(mongodb_uri).then(() => {
   console.log("Connected to database");
 });
 
