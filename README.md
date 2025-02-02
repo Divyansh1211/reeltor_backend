@@ -194,7 +194,7 @@ npm start
 
 #### **Fetch User Notifications**
 
-**Endpoint:** `GET /api/notification/:usedId`
+**Endpoint:** `GET /api/v1/notification/:usedId`
 **Headers:** `{ Authorization: Bearer your_jwt_token }`
 **Response:**
 
