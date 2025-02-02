@@ -27,7 +27,7 @@ const sendNotification = async (req, res) => {
         sender: senderId,
         recipients: [user._id],
         message,
-        type,
+        type: type || "non-critical",
         status,
         deliveredAt,
       });
@@ -71,7 +71,7 @@ const sendNotification = async (req, res) => {
 
 const getUserNotifications = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.params.userId;
     const notifications = await Notification.find({
       recipients: userId,
     }).sort({ sentAt: -1 });
