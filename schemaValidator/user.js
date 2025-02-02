@@ -11,10 +11,15 @@ const signInUserValidator = z.object({
 });
 
 const updateUserValidator = z.object({
-  name: z.string().optional(),
-  bio: z.string().min(6).optional(),
-  mobileNumber: z.string().length(10).optional(),
-  availabilityTime: z.string().optional(),
+  name: z.string().min(1, "Name is required"),
+  mobileNumber: z.string().regex(/^\d{10}$/, "Mobile number must be 10 digits"),
+  bio: z.string().optional(),
+  availabilityTime: z
+    .string()
+    .regex(
+      /^([01]\d|2[0-3]):([0-5]\d)-([01]\d|2[0-3]):([0-5]\d)$/,
+      "Availability time must be in HH:MM-HH:MM format"
+    ),
 });
 
 module.exports = {
