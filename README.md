@@ -54,13 +54,11 @@ npm start
 
 **Endpoint:** `POST /api/v1/user/signup`
 
-<!-- default role: user -->
-
 ```json
 {
   "email": "john@example.com",
   "password": "securepassword",
-  "role": "admin"
+  "role": "admin" //default user
 }
 ```
 
@@ -102,9 +100,8 @@ npm start
 **Endpoint:** `POST /api/v1/user/update`
 **Headers:** `{ Authorization: Bearer your_jwt_token }`
 
-<!-- All fields are optional -->
-
 ```json
+// All fiels are optional
 {
   "name": "John Updated",
   "mobileNumber": "9876543210",
